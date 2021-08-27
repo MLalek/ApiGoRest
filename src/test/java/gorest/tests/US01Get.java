@@ -53,6 +53,9 @@ public class US01Get {
         System.out.println(total);
         Assert.assertNotEquals(total, "2000");
 
+        String male = json.getString("male");
+        System.out.println(male);
+
         //List kullanimi : birden fazla value icin
         List<Integer> idList = json.getList("data.id");
         System.out.println(idList);  //index kullanilarak istenilen id'ye ulasilabilir
