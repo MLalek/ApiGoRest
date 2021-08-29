@@ -110,6 +110,7 @@ public class GetTechPro {
 
             @Test
     public void Get07(){
+
                 response = given().
                         when().
                         get("https://dummy.restapiexample.com/api/v1/employees");
@@ -119,7 +120,7 @@ public class GetTechPro {
                         then().
                         assertThat().
                         statusCode(200).
-                        contentType(ContentType.JSON).
+                        contentType(ContentType.JSON);
             }
 
 }
