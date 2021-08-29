@@ -16,9 +16,8 @@ public class GetTechPro02 extends TestBase {
        //spec01.pathParam("id", 123);
         response = given().
                 spec(spec01).
-                param("id","123").
                 when().
-                get("/{id}");
+                get();
         response.prettyPrint();
 
         response.

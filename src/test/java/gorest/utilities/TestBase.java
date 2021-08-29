@@ -8,7 +8,7 @@ public class TestBase {
 
     public void spec01(){
         spec01 = new RequestSpecBuilder().
-                setBaseUri("https://jsonplaceholder.typicode.com/todos").addParam("id","123").
+                setBaseUri("https://jsonplaceholder.typicode.com/todos").
                 build();
     }
 }
