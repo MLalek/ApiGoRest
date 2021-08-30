@@ -12,10 +12,11 @@ import static io.restassured.RestAssured.given;
 public class GetTechPro02 extends TestBase {
 
     Response response;
-    @Test // Assert that; "Server" in Headers should be "cloudflare",
+         // Assert that; "Server" in Headers should be "cloudflare",
          // "userid" should be 7,
          // title should be " esse et quis iste est earum aut impedit",
          // completed should be false
+    @Test
     public void get01() {
        spec01.pathParam("id", 123);
         response = given().
@@ -30,6 +31,24 @@ public class GetTechPro02 extends TestBase {
                 assertThat().
                 statusCode(200);
         Assert.assertEquals(response.getHeader("Server"), "cloudflare");
+
+    }
+
+
+    @Test
+    public void get02(){
+
+        response = given().
+                spec(spec02).
+                when().
+                get("?firstname=Jim&lastname=Jones");
+        response.prettyPrint();
+
+        response = given().
+                spec(spec02).
+                when().
+                get("/1");
+        response.prettyPrint();
 
     }
 }
