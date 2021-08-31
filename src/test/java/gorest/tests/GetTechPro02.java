@@ -16,15 +16,16 @@ public class GetTechPro02 extends TestBase {
          // "userid" should be 7,
          // title should be " esse et quis iste est earum aut impedit",
          // completed should be false
-    @Test
+
+    @Test // burada path i kullandik
     public void get01() {
-       spec01.pathParam("id", 123);
+       spec01.pathParam("id", 123); //id si 123 olani cagir
         response = given().
                 spec(spec01).
                 when().
-                get("/{id}");
+                get("/{id}"); // burada /{id} olmazsa gelmiyor
         response.prettyPrint();
-        response.prettyPeek();
+        //response.prettyPeek();
 
         response.
                 then().
@@ -35,19 +36,22 @@ public class GetTechPro02 extends TestBase {
     }
 
 
-    @Test
+    @Test // burada query param i kullandik
     public void get02(){
-
+        spec02.queryParam("firstname", "Jim"); // Isme/firstname  gore ariyoruz
         response = given().
                 spec(spec02).
                 when().
-                get("?firstname=Jim&lastname=Jones");
+                get();//get("?firstname=Jim&lastname=Jones") bu code un icinde olmasi karisikliga sebep
+                      // olacagi icin ilk satirda query param da bu bilgiye ulasiyoruz.
+                      // print: "bookingid": 10  u veya 10 numarali id de boyle bir bilgi yoksa [] bos geliyor
         response.prettyPrint();
 
         response = given().
                 spec(spec02).
                 when().
-                get("/1");
+                get("/10"); // burda yukarda sorguladigimizda 10 verince 10 u cagirip assert etmis  oluyoruz ve tum liste geliyor
+                                // print:10 numarali id nin tum bilgileri geliyor
         response.prettyPrint();
 
     }
